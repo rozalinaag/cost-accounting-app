@@ -8,7 +8,7 @@ const NewCost = (props) =>{
       ...inputCostData,
       id: Math.random().toString()
     }
-    props.onAddCost()
+    props.onAddCost(costData)
   }
 
   return (

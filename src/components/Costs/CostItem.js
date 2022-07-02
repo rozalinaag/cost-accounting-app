@@ -7,15 +7,17 @@ const CostItem = (props) => {
 
   return (
     <div>
-      <Card className='cost-item'>
+      <li>
+        <Card className='cost-item'>
 
-        <CostDate date={props.date}/>
-      <div className='const-item__description'>
-        <h2>{props.description}</h2>
-        <div className='cost-item__price'>{props.amount}</div>
-      </div>
-      
-      </Card>
+          <CostDate date={props.date}/>
+        <div className='const-item__description'>
+          <h2>{props.description}</h2>
+          <div className='cost-item__price'>{props.amount}</div>
+        </div>
+        
+        </Card>
+      </li>
     </div>
   );
 }

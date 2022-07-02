@@ -7,12 +7,16 @@ const CostForm = (props) => {
   const [inputName, setInputName] = useState('');
   const [inputAmount, setInputAmount] = useState('');
   const [inputDate, setInputDate] = useState('');
+  const [selectSpending, setSelectSpending] = useState('true');
 
   // const [userInput, setUserInput] = useState  ({
   //   name: '', 
   //   amount: '', 
   //   date: ''
   // });
+  const selectSpendingHandler = () => {
+    setSelectSpending(!selectSpending);
+  }
 
   const nameChangeHandler = (event) =>{
     setInputName(event.target.value)
@@ -50,20 +54,23 @@ const CostForm = (props) => {
     event.preventDefault();
 
     const costData = {
-        name: inputName, 
+        description: inputName, 
         amount: inputAmount, 
         date: new Date(inputDate)
     };
 
-    props.onSaveCostData();
+    props.onSaveCostData(costData);
     setInputName('');
     setInputAmount('');
     setInputDate('');
+    setSelectSpending(!selectSpending);
   };
 
 
   return (
+    
     <form onSubmit = {submitHandler}>
+      {selectSpending ?
         <div className="new-cost__controls">
           <div className="new-cost__control">
             <label>Name</label>
@@ -80,8 +87,16 @@ const CostForm = (props) => {
           <div className=".new-cost__actions">
             <button type="submit" >Add spending</button>
           </div>
-        </div>
-    </form>
+          <div className=".new-cost__actions">
+            <button type="button" onClick = {selectSpendingHandler} >Cansel</button>
+          </div>
+        </div>: 
+          <div className=".new-cost__actions">
+              <button onClick = {selectSpendingHandler} type="submit"  >Add spending</button>
+          </div>
+          }
+    </form> 
+
   )
 }
 
