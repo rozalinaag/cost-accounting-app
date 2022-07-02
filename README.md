@@ -1,3 +1,6 @@
+# Небольшое приложение, показывающее расходы за год. Сделано в целях обучения
+![image](https://user-images.githubusercontent.com/59352861/177009146-91efde09-9b8f-4b3f-9876-5480e40bf599.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
